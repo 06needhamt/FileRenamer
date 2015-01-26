@@ -72,21 +72,19 @@ namespace FileRenamer
 
         private void LowerCaseNames()
         {
+            int filesrenamed = 0;
             int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
             pgbProgress.Maximum = filecount;
             string directory = txtPath.Text;
-            if (Directory.Exists(directory + "/" + "Renamed"))
-            {
-                Directory.Delete(directory + "/" + "Renamed", true);
-            }
-            Directory.CreateDirectory(directory + "/" + "Renamed");
+            CreateOrEmptyDirectory(directory);
             foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
             {
                 //file.Delete();
                 if (HasUpperCase(file.Name))
                 {
-                    File.Copy(directory + "/" + file.Name, directory + "/" + "Renamed/" + file.Name.ToLower());
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.ToLower());
                     pgbProgress.Increment(1);
+                    filesrenamed++;
                 }
                 else
                 {
@@ -94,26 +92,24 @@ namespace FileRenamer
                     continue;
                 }
             }
-            MessageBox.Show(filecount + " Files were renamed");
+            MessageBox.Show(filesrenamed + " Files were renamed");
         }
 
         private void UpperCaseNames()
         {
+            int filesrenamed = 0;
             int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
             pgbProgress.Maximum = filecount;
             string directory = txtPath.Text;
-            if (Directory.Exists(directory + "/" + "Renamed"))
-            {
-                Directory.Delete(directory + "/" + "Renamed", true);
-            }
-            Directory.CreateDirectory(directory + "/" + "Renamed");
+            CreateOrEmptyDirectory(directory);
             foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
             {
                 //file.Delete();
                 if (HasLowerCase(file.Name))
                 {
-                    File.Copy(directory + "/" + file.Name, directory + "/" + "Renamed/" + file.Name.ToUpper());
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.ToUpper());
                     pgbProgress.Increment(1);
+                    filesrenamed++;
                 }
                 else
                 {
@@ -121,24 +117,22 @@ namespace FileRenamer
                     continue;
                 }
             }
-            MessageBox.Show(filecount + " Files were renamed");
+            MessageBox.Show(filesrenamed++ + " Files were renamed");
         }
         private void SpacesToUnderScores()
         {
+            int filesrenamed = 0;
             int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
             pgbProgress.Maximum = filecount;
             string directory = txtPath.Text;
-            if(Directory.Exists(directory + "/" + "Renamed"))
-            {
-                Directory.Delete(directory + "/" + "Renamed", true);
-            }
-            Directory.CreateDirectory(directory + "/" + "Renamed");
+            CreateOrEmptyDirectory(directory);
             foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
             {
                 if (file.Name.Contains(' '))
                 {
-                    File.Move(directory + "/" + file.Name, directory + "/" + "Renamed/" + file.Name.Replace(' ', '_'));
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.Replace(' ', '_'));
                     pgbProgress.Increment(1);
+                    filesrenamed++;
                 }
                 else
                 {
@@ -146,24 +140,22 @@ namespace FileRenamer
                     continue;
                 }
             }
-            MessageBox.Show(filecount + " Files were renamed");
+            MessageBox.Show(filesrenamed + " Files were renamed");
         }
         private void UnderScoresToSpaces()
         {
+            int filesrenamed = 0;
             int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
             pgbProgress.Maximum = filecount;
             string directory = txtPath.Text;
-            if (Directory.Exists(directory + "/" + "Renamed"))
-            {
-                Directory.Delete(directory + "/" + "Renamed", true);
-            }
-            Directory.CreateDirectory(directory + "/" + "Renamed");
+            CreateOrEmptyDirectory(directory);
             foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
             {
                 if (file.Name.Contains('_'))
                 {
-                    File.Move(directory + "/" + file.Name, directory + "/" + "Renamed/" + file.Name.Replace('_', ' '));
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.Replace('_', ' '));
                     pgbProgress.Increment(1);
+                    filesrenamed++;
                 }
                 else
                 {
@@ -171,7 +163,23 @@ namespace FileRenamer
                     continue;
                 }
             }
-            MessageBox.Show(filecount + " Files were renamed");
+            MessageBox.Show(filesrenamed + " Files were renamed");
+        }
+
+        private bool CreateOrEmptyDirectory(string directory)
+        {
+            if (Directory.Exists(directory + "\\" + "Renamed"))
+            {
+                foreach (string fileName in System.IO.Directory.GetFiles(directory + "\\" + "Renamed"))
+                {
+                    System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
+                    fileInfo.Attributes = FileAttributes.Normal;
+                }
+                Directory.Delete(directory + "\\" + "Renamed", true);
+            }
+            Directory.CreateDirectory(directory + "\\" + "Renamed");
+
+            return true;
         }
     }
 }
