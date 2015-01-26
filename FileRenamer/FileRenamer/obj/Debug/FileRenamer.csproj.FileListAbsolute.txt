@@ -7,3 +7,12 @@ C:\Users\Tom\Desktop\CodingStuff\FileRenamer\FileRenamer\obj\Debug\FileRenamer.P
 C:\Users\Tom\Desktop\CodingStuff\FileRenamer\FileRenamer\obj\Debug\FileRenamer.csproj.GenerateResource.Cache
 C:\Users\Tom\Desktop\CodingStuff\FileRenamer\FileRenamer\obj\Debug\FileRenamer.exe
 C:\Users\Tom\Desktop\CodingStuff\FileRenamer\FileRenamer\obj\Debug\FileRenamer.pdb
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\bin\Debug\FileRenamer.exe.config
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.exe
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.pdb
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\bin\Debug\FileRenamer.exe
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\bin\Debug\FileRenamer.pdb
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.csprojResolveAssemblyReference.cache
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.Form1.resources
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.Properties.Resources.resources
+C:\Users\Tom\Documents\GitHub\FileRenamer\FileRenamer\FileRenamer\obj\Debug\FileRenamer.csproj.GenerateResource.Cache

@@ -33,6 +33,8 @@
             this.pgbProgress = new System.Windows.Forms.ProgressBar();
             this.btnRenameFiles = new System.Windows.Forms.Button();
             this.dirSelect = new System.Windows.Forms.FolderBrowserDialog();
+            this.cboOperation = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPath
@@ -69,11 +71,36 @@
             this.btnRenameFiles.UseVisualStyleBackColor = true;
             this.btnRenameFiles.Click += new System.EventHandler(this.btnRenameFiles_Click);
             // 
+            // cboOperation
+            // 
+            this.cboOperation.FormattingEnabled = true;
+            this.cboOperation.Items.AddRange(new object[] {
+            "All Lower Case",
+            "All Upper Case",
+            "Spaces To Underscores",
+            "Underscores To Spaces",
+            ""});
+            this.cboOperation.Location = new System.Drawing.Point(181, 139);
+            this.cboOperation.Name = "cboOperation";
+            this.cboOperation.Size = new System.Drawing.Size(121, 21);
+            this.cboOperation.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "How should files be renamed";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(344, 272);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboOperation);
             this.Controls.Add(this.btnRenameFiles);
             this.Controls.Add(this.pgbProgress);
             this.Controls.Add(this.btnBrowse);
@@ -92,6 +119,8 @@
         private System.Windows.Forms.ProgressBar pgbProgress;
         private System.Windows.Forms.Button btnRenameFiles;
         private System.Windows.Forms.FolderBrowserDialog dirSelect;
+        private System.Windows.Forms.ComboBox cboOperation;
+        private System.Windows.Forms.Label label1;
     }
 }
 
