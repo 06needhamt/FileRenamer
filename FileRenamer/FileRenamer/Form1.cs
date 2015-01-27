@@ -51,7 +51,7 @@ namespace FileRenamer
                     UnderScoresToSpaces();
                     break;
                 }
-                case "Add Character to start of name":
+                case "Add String to start of name":
                 {
                     AddCharacter();
                     break;
@@ -208,7 +208,7 @@ namespace FileRenamer
 
         private void cboOperation_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cboOperation.Text.Equals("Add Character to start of name"))
+            if(cboOperation.Text.Equals("Add String to start of name"))
             {
                 txtCharacter.Enabled = true;
             }

@@ -41,14 +41,14 @@
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(12, 85);
+            this.txtPath.Location = new System.Drawing.Point(37, 85);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(140, 20);
             this.txtPath.TabIndex = 0;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(181, 85);
+            this.btnBrowse.Location = new System.Drawing.Point(227, 85);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // pgbProgress
             // 
-            this.pgbProgress.Location = new System.Drawing.Point(26, 229);
+            this.pgbProgress.Location = new System.Drawing.Point(37, 227);
             this.pgbProgress.Name = "pgbProgress";
             this.pgbProgress.Size = new System.Drawing.Size(230, 23);
             this.pgbProgress.TabIndex = 2;
@@ -81,7 +81,7 @@
             "All Upper Case",
             "Spaces To Underscores",
             "Underscores To Spaces",
-            "Add Character to start of name"});
+            "Add String to start of name"});
             this.cboOperation.Location = new System.Drawing.Point(181, 139);
             this.cboOperation.Name = "cboOperation";
             this.cboOperation.Size = new System.Drawing.Size(121, 21);
@@ -100,11 +100,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 188);
+            this.label2.Location = new System.Drawing.Point(34, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 13);
+            this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "character to add to filename";
+            this.label2.Text = "Stringto add to filename";
             // 
             // txtCharacter
             // 
