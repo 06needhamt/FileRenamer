@@ -51,6 +51,11 @@ namespace FileRenamer
                     UnderScoresToSpaces();
                     break;
                 }
+                case "Add Character to start of name":
+                {
+                    AddCharacter();
+                    break;
+                }
                 default:
                 {
                     MessageBox.Show("Please Select An Operation");
@@ -58,6 +63,25 @@ namespace FileRenamer
                 }
 
             }
+        }
+
+        private void AddCharacter()
+        {
+            string stringtoadd = txtCharacter.Text;
+            int filesrenamed = 0;
+            int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
+            pgbProgress.Maximum = filecount;
+            string directory = txtPath.Text;
+            CreateOrEmptyDirectory(directory);
+            foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
+            {
+                File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.Insert(0, stringtoadd));
+                pgbProgress.Increment(1);
+                filesrenamed++;
+            }
+                
+            MessageBox.Show(filesrenamed + " Files were renamed");
+   
         }
 
         private bool HasUpperCase(string str)
@@ -180,6 +204,18 @@ namespace FileRenamer
             Directory.CreateDirectory(directory + "\\" + "Renamed");
 
             return true;
+        }
+
+        private void cboOperation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cboOperation.Text.Equals("Add Character to start of name"))
+            {
+                txtCharacter.Enabled = true;
+            }
+            else
+            {
+                txtCharacter.Enabled = false;
+            }
         }
     }
 }
