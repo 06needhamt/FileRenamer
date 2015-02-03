@@ -81,6 +81,7 @@
             "All Upper Case",
             "Spaces To Underscores",
             "Underscores To Spaces",
+            "Dashes To Underscores",
             "Add String to start of name"});
             this.cboOperation.Location = new System.Drawing.Point(181, 139);
             this.cboOperation.Name = "cboOperation";

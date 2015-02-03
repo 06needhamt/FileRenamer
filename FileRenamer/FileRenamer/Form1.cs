@@ -51,6 +51,11 @@ namespace FileRenamer
                     UnderScoresToSpaces();
                     break;
                 }
+                case "Dashes To Underscores":
+                {
+                    DashesToUnderScores();
+                    break;
+                }
                 case "Add String to start of name":
                 {
                     AddCharacter();
@@ -63,6 +68,31 @@ namespace FileRenamer
                 }
 
             }
+        }
+
+        private void DashesToUnderScores()
+        {
+            int filesrenamed = 0;
+            int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
+            pgbProgress.Maximum = filecount;
+            string directory = txtPath.Text;
+            CreateOrEmptyDirectory(directory);
+            foreach (var file in new DirectoryInfo(directory).GetFiles("*.*"))
+            {
+                if (file.Name.Contains('-'))
+                {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.Replace('-', '_'));
+                    pgbProgress.Increment(1);
+                    filesrenamed++;
+                }
+                else
+                {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
+                    pgbProgress.Increment(1);
+                    continue;
+                }
+            }
+            MessageBox.Show(filesrenamed + " Files were renamed");
         }
 
         private void AddCharacter()
@@ -112,6 +142,7 @@ namespace FileRenamer
                 }
                 else
                 {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
                     pgbProgress.Increment(1);
                     continue;
                 }
@@ -137,6 +168,7 @@ namespace FileRenamer
                 }
                 else
                 {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
                     pgbProgress.Increment(1);
                     continue;
                 }
@@ -160,6 +192,7 @@ namespace FileRenamer
                 }
                 else
                 {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
                     pgbProgress.Increment(1);
                     continue;
                 }
@@ -183,6 +216,7 @@ namespace FileRenamer
                 }
                 else
                 {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
                     pgbProgress.Increment(1);
                     continue;
                 }
