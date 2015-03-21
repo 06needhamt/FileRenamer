@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCharacter = new System.Windows.Forms.TextBox();
+            this.txtRemoveString = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPath
@@ -58,14 +60,14 @@
             // 
             // pgbProgress
             // 
-            this.pgbProgress.Location = new System.Drawing.Point(37, 227);
+            this.pgbProgress.Location = new System.Drawing.Point(62, 267);
             this.pgbProgress.Name = "pgbProgress";
             this.pgbProgress.Size = new System.Drawing.Size(230, 23);
             this.pgbProgress.TabIndex = 2;
             // 
             // btnRenameFiles
             // 
-            this.btnRenameFiles.Location = new System.Drawing.Point(93, 273);
+            this.btnRenameFiles.Location = new System.Drawing.Point(118, 313);
             this.btnRenameFiles.Name = "btnRenameFiles";
             this.btnRenameFiles.Size = new System.Drawing.Size(99, 23);
             this.btnRenameFiles.TabIndex = 3;
@@ -75,6 +77,7 @@
             // 
             // cboOperation
             // 
+            this.cboOperation.Cursor = System.Windows.Forms.Cursors.Default;
             this.cboOperation.FormattingEnabled = true;
             this.cboOperation.Items.AddRange(new object[] {
             "All Lower Case",
@@ -82,7 +85,8 @@
             "Spaces To Underscores",
             "Underscores To Spaces",
             "Dashes To Underscores",
-            "Add String to start of name"});
+            "Add String to start of name",
+            "Remove String from File Name"});
             this.cboOperation.Location = new System.Drawing.Point(181, 139);
             this.cboOperation.Name = "cboOperation";
             this.cboOperation.Size = new System.Drawing.Size(121, 21);
@@ -103,9 +107,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(34, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.Size = new System.Drawing.Size(121, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Stringto add to filename";
+            this.label2.Text = "String to add to filename";
             // 
             // txtCharacter
             // 
@@ -115,11 +119,30 @@
             this.txtCharacter.Size = new System.Drawing.Size(100, 20);
             this.txtCharacter.TabIndex = 7;
             // 
+            // txtRemoveString
+            // 
+            this.txtRemoveString.Enabled = false;
+            this.txtRemoveString.Location = new System.Drawing.Point(192, 225);
+            this.txtRemoveString.Name = "txtRemoveString";
+            this.txtRemoveString.Size = new System.Drawing.Size(100, 20);
+            this.txtRemoveString.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 225);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "String to remove from filename";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 339);
+            this.Controls.Add(this.txtRemoveString);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCharacter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -130,6 +153,7 @@
             this.Controls.Add(this.txtPath);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,6 +170,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCharacter;
+        private System.Windows.Forms.TextBox txtRemoveString;
+        private System.Windows.Forms.Label label3;
     }
 }
 

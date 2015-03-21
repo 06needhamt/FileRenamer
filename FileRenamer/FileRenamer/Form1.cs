@@ -61,6 +61,11 @@ namespace FileRenamer
                     AddCharacter();
                     break;
                 }
+                case "Remove String from File Name":
+                {
+                    RemoveString();
+                    break;
+                }
                 default:
                 {
                     MessageBox.Show("Please Select An Operation");
@@ -68,6 +73,31 @@ namespace FileRenamer
                 }
 
             }
+        }
+
+        private void RemoveString()
+        {
+            int filesrenamed = 0;
+            int filecount = Directory.EnumerateFiles(txtPath.Text).Count();
+            pgbProgress.Maximum = filecount;
+            string directory = txtPath.Text;
+            CreateOrEmptyDirectory(directory);
+            foreach(var file in new DirectoryInfo(directory).GetFiles("*.*"))
+            {
+                if (file.Name.Contains(txtRemoveString.Text))
+                {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name.Replace(txtRemoveString + "_", string.Empty));
+                    pgbProgress.Increment(1);
+                    filesrenamed++;
+                }
+                else
+                {
+                    File.Copy(directory + "\\" + file.Name, directory + "\\" + "Renamed" + "\\" + file.Name);
+                    pgbProgress.Increment(1);
+                    continue;
+                }
+            }
+            MessageBox.Show(filesrenamed + " Files were renamed");
         }
 
         private void DashesToUnderScores()
@@ -250,6 +280,20 @@ namespace FileRenamer
             {
                 txtCharacter.Enabled = false;
             }
+
+            if(cboOperation.Text.Equals("Remove String from File Name"))
+            {
+                txtRemoveString.Enabled = true;
+            }
+            else
+            {
+                txtRemoveString.Enabled = false;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
